@@ -1,0 +1,35 @@
+{
+    "name": "montikids/module-message-popup",
+    "description": "Magento 2 popup messages module",
+    "homepage": "https://github.com/montikids/module-message-popup",
+    "keywords": [
+        "Magento 2",
+        "module",
+        "notifications",
+        "popup",
+        "message"
+    ],
+    "type": "magento2-component",
+    "license": "MIT",
+    "version": "1.0.0",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Tymofii Maksymenko",
+            "email": "tim.off.max@gmail.com",
+            "role": "Developer",
+            "homepage": "https://github.com/timoffmax"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Montikids\\MessagePopup\\": ""
+        }
+    }
+}

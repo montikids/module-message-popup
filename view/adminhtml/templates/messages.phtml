@@ -1,0 +1,28 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Montikids\MessagePopup\ViewModel\ConfigProvider;
+
+/**
+ * @var Template $block
+ * @var ConfigProvider $viewModel
+ */
+$viewModel = $block->getViewModel();
+?>
+
+<?php if (true === $viewModel->isEnabledAdmin()) : ?>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "mk_popup_messages_admin": {
+                            "component": "Montikids_MessagePopup/js/view/messages"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<?php endif; ?>

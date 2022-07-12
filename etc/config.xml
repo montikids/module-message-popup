@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <montikids_message_popup>
+            <general>
+                <enabled>0</enabled>
+                <enabled_frontend>0</enabled_frontend>
+                <enabled_admin>0</enabled_admin>
+                <pool_size>5</pool_size>
+            </general>
+            <replace_frontend>
+                <enabled>0</enabled>
+                <error>0</error>
+                <warning>0</warning>
+                <notice>0</notice>
+                <success>0</success>
+            </replace_frontend>
+            <replace_admin>
+                <enabled>0</enabled>
+                <error>0</error>
+                <warning>0</warning>
+                <notice>0</notice>
+                <success>0</success>
+            </replace_admin>
+        </montikids_message_popup>
+    </default>
+</config>
