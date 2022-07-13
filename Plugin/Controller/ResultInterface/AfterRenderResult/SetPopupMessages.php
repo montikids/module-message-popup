@@ -16,9 +16,9 @@ use Magento\Framework\Translate\InlineInterface;
 use Magento\Framework\View\Element\Message\InterpretationStrategyInterface;
 use Montikids\MessagePopup\Model\Logger\AnyContextLogger;
 use Montikids\MessagePopup\Service\Checker\CheckCurrentArea;
-use Montikids\MagentoTheme\Service\MessageResponse;
 use Montikids\MessagePopup\Model\Config;
 use Montikids\MessagePopup\Model\Manager\PopupMessage as PopupMessageManager;
+use Montikids\MessagePopup\Service\Checker\IsValidRequest;
 
 /**
  * Moves popup messages from session to the cookie
@@ -40,11 +40,6 @@ class SetPopupMessages
     private const KEY_TYPE = 'type';
     private const KEY_TEXT = 'text';
     private const KEY_TITLE = 'title';
-
-    /**
-     * @var MessageResponse
-     */
-    private $messageResponse;
 
     /**
      * @var CookieManagerInterface
@@ -87,6 +82,11 @@ class SetPopupMessages
     private $checkCurrentArea;
 
     /**
+     * @var IsValidRequest
+     */
+    private $isValidRequest;
+
+    /**
      * @var Config
      */
     private $config;
@@ -100,8 +100,8 @@ class SetPopupMessages
      * @param InlineInterface $inlineTranslate
      * @param AnyContextLogger $logger
      * @param CheckCurrentArea $checkCurrentArea
+     * @param IsValidRequest $isValidRequest
      * @param Config $config
-     * @param MessageResponse $messageResponse
      *
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
@@ -115,7 +115,7 @@ class SetPopupMessages
         AnyContextLogger $logger,
         CheckCurrentArea $checkCurrentArea,
         Config $config,
-        MessageResponse $messageResponse
+        IsValidRequest $isValidRequest
     ) {
         $this->cookieManager = $cookieManager;
         $this->metadataFactory = $metadataFactory;
@@ -125,8 +125,8 @@ class SetPopupMessages
         $this->inlineTranslate = $inlineTranslate;
         $this->logger = $logger;
         $this->checkCurrentArea = $checkCurrentArea;
+        $this->isValidRequest = $isValidRequest;
         $this->config = $config;
-        $this->messageResponse = $messageResponse;
     }
 
     /**
@@ -140,7 +140,7 @@ class SetPopupMessages
      */
     public function afterRenderResult(ResultInterface $subject, ResultInterface $result): ResultInterface
     {
-        if ((false === $this->checkIsEnabled()) || (false === $this->messageResponse->isResponseMessage())) {
+        if ((false === $this->checkIsEnabled()) || (false === $this->isValidRequest->check())) {
             return $result;
         }
 
