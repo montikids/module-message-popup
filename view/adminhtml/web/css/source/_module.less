@@ -1,0 +1,37 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .mk-message-popup {
+        width: 800px;
+        margin: auto;
+        top: 30%;
+        font-size: 18px;
+
+        header.mk-modal-header {
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-bottom: 20px;
+
+            .modal-title {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            &.message {
+                > *:first-child:before {
+                    top: 50%;
+                }
+            }
+        }
+
+        .modal-content {
+            text-align: center;
+        }
+
+        footer.modal-footer {
+            margin: auto;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .mk-message-popup {
+        width: 800px;
+        margin: auto;
+        top: 30%;
+        font-size: 18px;
+
+        header.mk-modal-header {
+            padding-top: 0;
+            padding-bottom: 0;
+
+            .modal-title {
+                padding: inherit;
+            }
+
+            &.message {
+                > *:first-child:before {
+                    top: 50%;
+                }
+            }
+        }
+
+        .modal-content {
+            text-align: center;
+        }
+
+        footer.modal-footer {
+            margin: auto;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .mk-message-popup {
+        font-size: 16px;
+
+        header.mk-modal-header {
+            .modal-title {
+                padding: 15px;
+            }
+        }
+    }
+}
+

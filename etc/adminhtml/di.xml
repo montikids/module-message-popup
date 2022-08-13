@@ -1,0 +1,9 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Plugins -->
+    <type name="Magento\Framework\Controller\ResultInterface">
+        <plugin name="mk_set_popup_messages_admin" type="Montikids\MessagePopup\Plugin\Controller\ResultInterface\AfterRenderResult\SetPopupMessages"/>
+    </type>
+    <type name="Magento\Framework\Message\ManagerInterface">
+        <plugin name="mk_convert_to_popup_admin" type="Montikids\MessagePopup\Plugin\ManagerInterface\AroundAddMessage\AreaAdminhtml\ConvertToPopupMessage" sortOrder="1"/>
+    </type>
+</config>
